@@ -31,3 +31,10 @@ head(patents, 10)
 top10 <- sort(table(patents$ee_city),decreasing=TRUE)[1:10]
 
 top10
+
+types <- unique(patents$ptype)
+types
+ptnt2 <-patents %>% count(ee_country, ptype)
+
+
+top10<-ptnt2[order(-ptnt2$n),][1:10,]
