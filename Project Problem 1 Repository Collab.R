@@ -24,3 +24,10 @@ patentsbystate <- cleandata[cleandata$ee_country == 'US',] %>%
   drop_na(ee_state)%>%
   group_by(ee_state)%>%
   summarise(count = n())
+
+# Find the top ten cities who filed for the most patents 
+head(patents, 10)
+
+top10 <- sort(table(patents$ee_city),decreasing=TRUE)[1:10]
+
+top10
